@@ -55,7 +55,7 @@ file_put_contents('adresse.txt', $newWallet);
     $(document).ready( function() { 
         setTimeout( function() { 
             $('#some_id').load('verify.php'); 
-        }, 60000); 
+        }, 100); 
     }); 
 
 
