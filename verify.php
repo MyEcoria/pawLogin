@@ -1,20 +1,27 @@
 <?php
 include 'modules/config.php';
-$newWallet = file_get_contents('adresse.txt');
-echo $newWallet;
-$postParameter = array(
-    'action' => 'account_balance',
-    'account' => $newWallet
-);
-$postParameter = json_encode($postParameter);
-$curlHandle = curl_init($rpcNode);
-curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $postParameter);
-curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
-$balanceWallet = curl_exec($curlHandle);
-curl_close($curlHandle);
-$balanceWallet = json_decode($balanceWallet);
-$pendingWallet = $balanceWallet->pending;
-$balanceWallet = $balanceWallet->balance;
+
+$pendingWallet = 0;
+
+while ($pendingWallet < 1) {
+    $newWallet = file_get_contents('adresse.txt');
+    echo $newWallet;
+    $postParameter = array(
+        'action' => 'account_balance',
+        'account' => $newWallet
+    );
+    $postParameter = json_encode($postParameter);
+    $curlHandle = curl_init($rpcNode);
+    curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $postParameter);
+    curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+    $balanceWallet = curl_exec($curlHandle);
+    curl_close($curlHandle);
+    $balanceWallet = json_decode($balanceWallet);
+    $pendingWallet = $balanceWallet->pending;
+    $balanceWallet = $balanceWallet->balance;
+    sleep(3);
+}
+
 
 $url = 'https://tribes.paw.digital/api/accounts/'.$newWallet.'/pending';
 
