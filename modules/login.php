@@ -33,7 +33,7 @@ file_put_contents('adresse.txt', $newWallet);
   <body>
     <div class="wrapper">
       <header>
-        <h1>Check in:</h1><div style="color: red;" id="timer"></div>
+        <h1>Login with PAW 🚀</h1>
         <p>Send 1 paw to this address:</p>
       </header>
       <div class="form">
@@ -47,7 +47,7 @@ file_put_contents('adresse.txt', $newWallet);
     </div>
 
     <script src="utils/js/script.js"></script>
-    <script src="utils/js/timer.js"></script>
+    <!--<script src="utils/js/timer.js"></script>-->
     <script type="text/javascript" src="utils/js/jquery.js"></script>          
     <script type="text/javascript">
 

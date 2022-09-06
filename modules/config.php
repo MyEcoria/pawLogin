@@ -11,6 +11,6 @@ $encryption_key = "";
 $decryption_key = $encryption_key;
 
 // The web address where the code is 🚀
-$urlRedirect = "https://pawlogin.myecoria.com";
+$urlRedirect = "";
 
 ?>
